@@ -1,0 +1,16 @@
+v5: switch, exact removed               v6: routes - <Route path="/quotes" element={<AllQuotes />} />
+    activeClassName removed                 className={(navData) => navData.isActive ? classes.active : '' }
+    Redirect removed                        Navigate replace
+    nested Route                            <Routes><Route... element={...} /></Routes>
+                                                parent: <Route path="/welcome/*" element={<Welcome />} />
+                                                child: <Routes><Route path="new-user" element={<p>Welcome, new user!></p>} /></Routes>
+                                                    or another approach
+                                                parent: <Route path="/welcome/*" element={<Welcome />}>
+                                                            <Route path="new-user" element={<p>Welcome, new user!></p>} />
+                                                        </Route>
+                                                child: Outlet (imported from react-router-dom)
+                                                        <Outlet />
+    useHistory removed                      useNavigate
+                                                const navigate = useNavigate();
+                                                navigate('/welcome') - navigate('/welcome', {replace: true}) - navigate(-1)
+    Prompt removed                          no alternatives -> use v5
